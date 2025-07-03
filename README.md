@@ -96,3 +96,8 @@ flutter run
 apk/
 └── mobile-test-kanggo.apk  
 ```
+### 📥 Download APK
+
+You can directly download and install the APK file:
+
+👉 [Download mobile-test-kanggo.apk](https://drive.google.com/file/d/1jmrC6VkE8lC_QP5LWBO2kiJinsmPhTOP/view?usp=sharing)
