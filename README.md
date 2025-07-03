@@ -40,5 +40,5 @@ A Flutter mobile application that displays news articles fetched from a public A
 ### 2. 📥 Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/kanggo-news-app.git
-cd kanggo-news-app
+git clone https://github.com/dedypry/kanggo-mobile-test.git
+cd kanggo-mobile-test
