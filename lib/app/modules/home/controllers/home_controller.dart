@@ -9,6 +9,18 @@ class HomeController extends GetxController {
   final NewsProvider _provider = NewsProvider();
   TextEditingController searchController = TextEditingController();
 
+  late final pagingController = PagingController<int, Articles>(
+    getNextPageKey: (state) =>
+        state.lastPageIsEmpty ? null : state.nextIntPageKey,
+    fetchPage: (pageKey) => fetchPagedNews(
+      search: searchController.text.trim().isEmpty
+          ? "aa"
+          : searchController.text.trim(),
+      page: pageKey,
+      more: true,
+    ),
+  );
+
   void saveFavorite(Articles item, bool isFavorite) async {
     try {
       final DB = await AppDatabase.database;
@@ -25,7 +37,7 @@ class HomeController extends GetxController {
           "publishedAt": item.publishedAt,
           "content": item.content,
         });
-      }else{
+      } else {
         await DB.delete(
           "articles",
           where: "title = ?",
@@ -38,18 +50,6 @@ class HomeController extends GetxController {
       Get.snackbar("ERROR", e.toString());
     }
   }
-
-  late final pagingController = PagingController<int, Articles>(
-    getNextPageKey: (state) =>
-        state.lastPageIsEmpty ? null : state.nextIntPageKey,
-    fetchPage: (pageKey) => fetchPagedNews(
-      search: searchController.text.trim().isEmpty
-          ? "aa"
-          : searchController.text.trim(),
-      page: pageKey,
-      more: true,
-    ),
-  );
 
   Future<List<Articles>> fetchPagedNews({
     String search = 'a',
@@ -79,12 +79,12 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    pagingController.refresh();
   }
 
   @override
   void onReady() {
     super.onReady();
-    print("READY");
   }
 
   @override
