@@ -101,3 +101,16 @@ apk/
 You can directly download and install the APK file:
 
 👉 [Download mobile-test-kanggo.apk](https://drive.google.com/file/d/1jmrC6VkE8lC_QP5LWBO2kiJinsmPhTOP/view?usp=sharing)
+
+
+### If you check error, Change API KEY
+
+```bash
+lib/
+├── configs/  
+    └── api.dart
+
+
+change
+const API_KEY = ;
+```
