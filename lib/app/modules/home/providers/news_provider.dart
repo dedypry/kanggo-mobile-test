@@ -8,7 +8,7 @@ class NewsProvider extends GetConnect {
   }
 
   Future<Response> getNews(search, page) {
-    String url = "${API_HOST}?q=${search}&from=2025-06-03&sortBy=publishedAt&pageSize=10&page=${page}&apiKey=${API_KEY}";
+    String url = "${API_HOST}?q=${search}&from=${today}&sortBy=publishedAt&pageSize=10&page=${page}&apiKey=${API_KEY}";
     print("URL $url");
     return get(url);
   }
